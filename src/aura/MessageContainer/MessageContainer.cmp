@@ -1,0 +1,27 @@
+<aura:component >
+	<!-- METHODS -->
+   	<aura:method name="displayMessage" action="{!c.displayMessage}" 
+      description="Display a message"> 
+    	<aura:attribute name="severity" type="String" /> 
+    	<aura:attribute name="title" type="String" /> 
+    	<aura:attribute name="message" type="String" /> 
+    </aura:method>
+    
+	<aura:attribute name="severity" type="String" /> 
+	<aura:attribute name="title" type="String" /> 
+	<aura:attribute name="message" type="String" /> 
+	
+	<aura:attribute name="toastClass" type="String" /> 
+
+    <!-- BODY -->
+	<div class="slds-notify_container slds-hide" aura:id="message">
+	  	<div class="{!v.toastClass}" role="alert">
+	    	<span class="slds-assistive-text">{!v.severity}</span>
+	    	<lightning:buttonIcon iconName="utility:close" variant="bare-inverse" class="slds-button slds-notify__close slds-button--icon-inverse" title="Close" alternativeText="delete condition" onclick="{!c.hideMessage}"/>
+	    	<div class="slds-notify__content">
+	      		<h2 class="slds-text-heading--small">{!v.title}</h2>
+	      		<p>{!v.message}</p>
+	    	</div>
+	  	</div>
+	</div>
+</aura:component>
